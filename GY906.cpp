@@ -1,8 +1,7 @@
-extern "C"
-{
+
 #include "GY906.h"
 #include "pa_CommonLib/src/drv/pa_CommonDrv/pa_CommonDrv.h"
-}
+
 namespace GY906
 {
 #define GY906_I2CADDR 0x00
@@ -42,7 +41,7 @@ namespace GY906
         double temp;
         uint8_t rdtemp[3];
         pa_IICSettingStruct a;
-        pa_IIC_readLen(GY906_I2CADDR, reg, 3, rdtemp,a);
+        pa_IIC_readLen(GY906_I2CADDR, reg, 3, rdtemp, a);
         temp = (rdtemp[0]) | (rdtemp[1] << 8);
         temp *= .02;
         temp -= 273.15;
